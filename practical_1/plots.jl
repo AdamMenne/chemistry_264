@@ -1,6 +1,9 @@
 ### A Pluto.jl notebook ###
 # v0.19.9
 
+#> [frontmatter]
+#> title = "Chemistry 264 - Practical 1"
+
 using Markdown
 using InteractiveUtils
 
@@ -16,6 +19,12 @@ end
 
 # ╔═╡ b833dee0-0d08-11ed-0b7d-9973115c92f3
 using CairoMakie, PlutoUI, StatsBase, HypothesisTests
+
+# ╔═╡ e1cb4f53-910b-4c99-b6dc-ab431cdc2fb4
+md"# Chemistry 264 - Practical 1"
+
+# ╔═╡ 0d46bc34-8876-4e78-b01b-5fb380acf8f3
+md" ## Packages and data"
 
 # ╔═╡ 159bc6e7-851d-4a00-b5e1-c3c0952af4e2
 oxM_mass = 90.03;
@@ -41,6 +50,9 @@ vAB_all = [(vA[i] - vA[1], vB[i] - vB[1]) for i=2:length(vA)]
 # ╔═╡ d61e0834-9491-43d1-bd54-ee1436636a3c
 vAB_doctor = deleteat!(copy(vAB_all),[1, 3, 8, 9, 10, 11, 12, 13, 14])
 
+# ╔═╡ 7a631cf8-ef2c-43ab-943b-86b4fdc0a9f9
+md" ## Analysis and figures"
+
 # ╔═╡ 37cdc363-17a3-4169-aa4a-35b23032b3c4
 @bind vAB Select([vAB_doctor => "doctor", vAB_all => "all"])
 
@@ -59,7 +71,7 @@ std(cB)/ mean(cB) * 1000
 # for 4 degree of freedom at 95%
 #t = 2.78
 # for 15 degree of freedom at 95%
-t = 2.13
+t = 2.13;
 
 # ╔═╡ 3bef77df-093b-4831-9ed4-7e5f370451a6
  mean(cB) + t * std(cB) / sqrt(length(cB))
@@ -72,16 +84,18 @@ ci_m = t * std(cB) / sqrt(length(cB))
 begin
 	f = Figure()
 	ax = Axis(f[1, 1], 
+		title = "Titration of Oxalic acid with Sodium hydroxide",
 		xlabel = "Titration", 
 		ylabel = "Concentration of NaOH", 
 		xticks = 1:length(vAB)
 		)
-	x = 1:length(vAB)
+	x = 1:length(cB)
 	y = cB
-	error_l = 0.0001
-	error_h = 0.0002
-	scatter!(ax, x, y)
+	ci_r = round(ci_m, sigdigits = 4)
+	mean_r = round(mean(cB), sigdigits = 4)
+	s = scatter!(ax, x, y)
 	errorbars!(ax, x, y, ci_m, color = :red)
+	legend = axislegend(ax, [s], ["CIM = $mean_r ± $ci_r"], position = :rt)
 	f
 end
 
@@ -96,6 +110,12 @@ ci = confint(OneSampleTTest(cB))
 
 # ╔═╡ 3b60182c-9c63-4257-816d-b2aea7f0c7e2
 confint(OneSampleTTest(cB), tail = :right)
+
+# ╔═╡ f07e6464-a4cf-4750-8861-6269331a4869
+md"##### Hidden Definitions"
+
+# ╔═╡ 959f94af-34a5-475c-904b-d83dfd7f6e7b
+TableOfContents()
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -1334,6 +1354,8 @@ version = "3.5.0+0"
 """
 
 # ╔═╡ Cell order:
+# ╟─e1cb4f53-910b-4c99-b6dc-ab431cdc2fb4
+# ╟─0d46bc34-8876-4e78-b01b-5fb380acf8f3
 # ╠═b833dee0-0d08-11ed-0b7d-9973115c92f3
 # ╠═159bc6e7-851d-4a00-b5e1-c3c0952af4e2
 # ╠═b5785212-4476-4da4-8ee8-3c4512b9de6a
@@ -1343,6 +1365,7 @@ version = "3.5.0+0"
 # ╠═4fcc5d38-7fdd-4c83-bebe-556aa4f1e71c
 # ╠═b1b51e41-1a48-4592-bacd-50c0cd9039d0
 # ╠═d61e0834-9491-43d1-bd54-ee1436636a3c
+# ╟─7a631cf8-ef2c-43ab-943b-86b4fdc0a9f9
 # ╠═37cdc363-17a3-4169-aa4a-35b23032b3c4
 # ╠═5339fae5-764a-49c4-bc69-154b601675ea
 # ╠═6b188ee7-1236-45f8-b2b9-8377ff4d89d4
@@ -1355,5 +1378,7 @@ version = "3.5.0+0"
 # ╠═41ebc9cb-eaeb-4f10-9c2b-187a9708e426
 # ╠═0cbd99c8-29ed-4634-9b33-9efd7f5fe69c
 # ╠═3b60182c-9c63-4257-816d-b2aea7f0c7e2
+# ╟─f07e6464-a4cf-4750-8861-6269331a4869
+# ╟─959f94af-34a5-475c-904b-d83dfd7f6e7b
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
