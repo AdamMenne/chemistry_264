@@ -59,6 +59,9 @@ md" ## Analysis and figures"
 # ╔═╡ 5339fae5-764a-49c4-bc69-154b601675ea
 cB =[2* cA * vAB[i][1] / vAB[i][2] for i=1:length(vAB)]
 
+# ╔═╡ 800571ba-6b28-4019-83ed-341b9a82039e
+#save("conc.pdf", f)
+
 # ╔═╡ e73f2e6c-5821-40ac-80cb-c070d22bb08a
 variation(cB)*1000
 
@@ -69,9 +72,9 @@ std(cB)/ mean(cB) * 1000
 # for 1 degree of freedom at 95%
 #t = 12.7
 # for 4 degree of freedom at 95%
-#t = 2.78
+t = 2.78
 # for 15 degree of freedom at 95%
-t = 2.13;
+#t = 2.13;
 
 # ╔═╡ 3bef77df-093b-4831-9ed4-7e5f370451a6
  mean(cB) + t * std(cB) / sqrt(length(cB))
@@ -84,7 +87,6 @@ ci_m = t * std(cB) / sqrt(length(cB))
 begin
 	f = Figure()
 	ax = Axis(f[1, 1], 
-		title = "Titration of Oxalic acid with Sodium hydroxide",
 		xlabel = "Titration", 
 		ylabel = "Concentration of NaOH", 
 		xticks = 1:length(vAB)
@@ -94,8 +96,7 @@ begin
 	ci_r = round(ci_m, sigdigits = 4)
 	mean_r = round(mean(cB), sigdigits = 4)
 	s = scatter!(ax, x, y)
-	errorbars!(ax, x, y, ci_m, color = :red)
-	legend = axislegend(ax, [s], ["CIM = $mean_r ± $ci_r"], position = :rt)
+	legend = axislegend(ax, [s], ["CI for μ = $mean_r ± $ci_r"], position = :rt)
 	f
 end
 
@@ -108,8 +109,31 @@ OneSampleTTest(cB)
 # ╔═╡ 0cbd99c8-29ed-4634-9b33-9efd7f5fe69c
 ci = confint(OneSampleTTest(cB))
 
-# ╔═╡ 3b60182c-9c63-4257-816d-b2aea7f0c7e2
-confint(OneSampleTTest(cB), tail = :right)
+# ╔═╡ a7443a63-5628-4359-95e6-57cc80a0733f
+md"## Pre-laboraory Questions"
+
+# ╔═╡ fadca6ed-c44a-4618-9a97-08f75ef9bc19
+vHCl = [0, 10, 12.5, 25, 26]
+
+# ╔═╡ ae320068-12ef-49f3-8584-f9d5453d5267
+pH = [10.972, 9.421, 9.245, 5.361, 2.881]
+
+# ╔═╡ 6f6d5dea-43f7-47c2-82b0-00cfe27bbd54
+begin
+	f2 = Figure()
+	ax2 = Axis(f2[1, 1],
+		xlabel = "HCl added (ml)", 
+		ylabel = "pH", 
+		)
+	x2 = vHCl
+	y2 = pH
+	scatter!(ax2, x2, y2)
+	lines!(ax2, x2, y2)
+	f2
+end
+
+# ╔═╡ f0dbc607-d7a1-4d1c-945c-0dc1929baa2f
+save("curve.pdf", f2)
 
 # ╔═╡ f07e6464-a4cf-4750-8861-6269331a4869
 md"##### Hidden Definitions"
@@ -1369,6 +1393,7 @@ version = "3.5.0+0"
 # ╠═37cdc363-17a3-4169-aa4a-35b23032b3c4
 # ╠═5339fae5-764a-49c4-bc69-154b601675ea
 # ╠═6b188ee7-1236-45f8-b2b9-8377ff4d89d4
+# ╠═800571ba-6b28-4019-83ed-341b9a82039e
 # ╠═e73f2e6c-5821-40ac-80cb-c070d22bb08a
 # ╠═bb9af95d-2a0d-4aa2-9bc5-cdd34843f3b8
 # ╠═6cf9d497-c851-4b9a-979d-80ff0dac37d0
@@ -1377,7 +1402,11 @@ version = "3.5.0+0"
 # ╠═260bad7e-e02c-4bea-9347-925a2612a94d
 # ╠═41ebc9cb-eaeb-4f10-9c2b-187a9708e426
 # ╠═0cbd99c8-29ed-4634-9b33-9efd7f5fe69c
-# ╠═3b60182c-9c63-4257-816d-b2aea7f0c7e2
+# ╟─a7443a63-5628-4359-95e6-57cc80a0733f
+# ╠═fadca6ed-c44a-4618-9a97-08f75ef9bc19
+# ╠═ae320068-12ef-49f3-8584-f9d5453d5267
+# ╠═6f6d5dea-43f7-47c2-82b0-00cfe27bbd54
+# ╠═f0dbc607-d7a1-4d1c-945c-0dc1929baa2f
 # ╟─f07e6464-a4cf-4750-8861-6269331a4869
 # ╟─959f94af-34a5-475c-904b-d83dfd7f6e7b
 # ╟─00000000-0000-0000-0000-000000000001
