@@ -66,22 +66,20 @@ cB =[2* cA * vAB[i][1] / vAB[i][2] for i=1:length(vAB)]
 variation(cB)*1000
 
 # ╔═╡ bb9af95d-2a0d-4aa2-9bc5-cdd34843f3b8
-std(cB)/ mean(cB) * 1000
+std(cB, corrected=false)/ mean(cB) * 1000
 
 # ╔═╡ 6cf9d497-c851-4b9a-979d-80ff0dac37d0
-# for 1 degree of freedom at 95%
-#t = 12.7
 # for 4 degree of freedom at 95%
 t = 2.78
 # for 15 degree of freedom at 95%
 #t = 2.13;
 
 # ╔═╡ 3bef77df-093b-4831-9ed4-7e5f370451a6
- mean(cB) + t * std(cB) / sqrt(length(cB))
+ mean(cB) + t * std(cB, corrected=false) / sqrt(length(cB))
 
 # ╔═╡ c1798003-5330-4ac9-90eb-b26c2fba04d3
 #ci_m = mean(cB) + t * std(cB) / sqrt(length(cB))
-ci_m = t * std(cB) / sqrt(length(cB))
+ci_m = t * std(cB, corrected=false) / sqrt(length(cB))
 
 # ╔═╡ 6b188ee7-1236-45f8-b2b9-8377ff4d89d4
 begin
