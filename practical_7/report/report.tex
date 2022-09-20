@@ -1,0 +1,143 @@
+\documentclass[a4paper, british]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+% \usepackage[margin=2.5cm,a4paper]{geometry}
+% \usepackage[skip=1em]{parskip}
+\usepackage{lmodern} 
+\usepackage{microtype}
+% \usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{ {./figures/} }
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{adjustbox} % rescale - useful for Dia exported TeX
+\usepackage{tikz}
+% \usepackage{pgfplots}
+\usepackage{booktabs} %tables no vertical lines
+% \usepackage{array}
+% \usepackage{authblk}
+% \usepackage{fancyhdr} %headers and footers
+% \usepackage{titlesec}
+% \usepackage{tcolorbox} % framed text boxes
+% \usepackage{mathtools, amssymb, amsthm}
+% \usepackage{gensymb}
+\usepackage{chemformula} % chemical formulae
+\usepackage{chemfig} % molecular figures
+\usepackage{siunitx}
+\usepackage{csquotes}
+\usepackage[titletoc, title]{appendix}
+% \usepackage{lettrine} % initials
+
+\usepackage[
+pdfauthor={Adam Menne},
+pdftitle={Chemistry 264 - Practical 7},
+pdfsubject={},
+pdfkeywords={}]{hyperref}
+
+\usepackage[noabbrev]{cleveref}
+
+\usepackage[
+backend=biber,
+style=numeric,
+sorting=none,
+doi=true,
+isbn=false
+]{biblatex}
+\addbibresource{citations.bib}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+\linespread{1.3}
+
+\title{Chemistry 264\\ Practical 7}
+\date{Last edited on \today}
+\author{Adam Menne\\ Stellenbosch University}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent
+In this practical gas chromatography was used to analyse a solution of hydrocarbons. From this the effect of various parameters related to gas chromatography were investigated.
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Experiment}
+
+A solution containing heptane through decane in a hexane solvent was analysed using gas chromatography, four runs were done in total, three isothermally at 60\textcelsius{}, and one using a temperature program. The results were used to investigate the reproducibility of manual injection in gas chromatography, and the effect of film thickness of the column used.
+
+
+\section{Calculations}
+
+\subsection*{1.}
+
+The retention time of nonane had a RSD of 0.2599\%, while the peak area was 133.1\%. The high RSD of peak area shows that the volume of sample introduced to the column was not consistent over the three runs.
+
+\subsection*{2.}
+
+The values for the retention factor of heptane through decane found in \cref*{tab:k} for a column with film thickness of \(0.25\mu m\) are approximately half that of those for a column with film thickness of \(0.5\mu m\). This is due to the decreased exposed surface area of the stationary phase that comes with increased thickness, leading to increased retention times.
+
+\begin{table}[H]
+    \centering
+    \caption{}
+    \vspace*{2mm}
+    \label{tab:k}
+    \begin{tabular}{cc}
+    \toprule
+    Analyte & Retention factor \\ \midrule
+    \(C_7\) & 0.1282 \\
+    \(C_8\) & 0.4162 \\
+    \(C_9\) & 1.013 \\
+    \(C_{10}\) & 2.244 \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection*{3.}
+
+For a column with a length of \(30 m \), a \( mm\)  internal
+diameter, and a film coating of \(0.25 \mu m\) thickness, the distribution coefficient of octane and nonane were 104.0 and 253.3 respectively.
+
+\subsection*{4.}
+
+The selectivity factor \(\alpha\) between octane and nonane was 2.434
+
+\subsection*{5.}
+
+The peak width of octane at half-height was 0.01938 minutes. With a concurrent separation efficiency of 108000.
+
+\subsection*{6.}
+
+The height equivalent of a theoretical plate was 0.0002777
+
+\subsection*{7.}
+
+The coating efficiency was 90.02\%
+
+\subsection*{8.}
+
+Yes, it will have a short retention time due to being extremely polar, and the PDMS stationary phase not being polar.
+
+\subsection*{9.}
+
+It allows for the length of the analysis to be decreased, as the higher the temperature the faster the mobile phase moves through the column. As such a good temperature programmed run will allow the early eluting analytes to separate adequately while decreasing the time between later eluting analytes to pass through the column.
+
+\subsection*{10.}
+
+\begin{enumerate}[label={\alph*)}]
+    \item The column will be saturated and analytes will elute simultaneously, leading to peaks overlapping.
+    \item Significantly increased retention time.
+    \item Increased overlapping
+    \item Initial peaks will be closer together and later will be further apart.
+    \item For an isothermal run, retention time should have a fairly linear proportionality with boiling point, however as this is a temperature programmed run, deducing the relative boiling points of the analytes is not possible without the parameters used in the temperature program.
+\end{enumerate}
+
+A static export of the notebook containing all analysis and figures is availible at \url{https://adammenne.github.io/chemistry_264/practical_7/notebook.html}. With full source code availble at \url{https://github.com/AdamMenne/chemistry_264/tree/master/practical_7}
+
+
+\end{document}
