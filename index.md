@@ -7,7 +7,7 @@ These may be run in a live environment by clicking "Edit or run this notebook" i
 - [Practical 2](https://adammenne.github.io/chemistry_264/practical_2/plots.html)
 - [Practical 3](https://adammenne.github.io/chemistry_264/practical_3/notebook.html)
 - [Practical 4](https://adammenne.github.io/chemistry_264/practical_4/notebook.html)
-- [Practical 5](https://adammenne.github.io/chemistry_264/practical_5/notebook.html)
+- [Practical 7](https://adammenne.github.io/chemistry_264/practical_7/notebook.html)
 
 # Reports
 Latest compiled PDFs
@@ -15,4 +15,4 @@ Latest compiled PDFs
 - [Practical 2](https://github.com/AdamMenne/chemistry_264/raw/master/practical_2/report/report.pdf)
 - [Practical 3](https://github.com/AdamMenne/chemistry_264/raw/master/practical_3/report/report.pdf)
 - [Practical 4](https://github.com/AdamMenne/chemistry_264/raw/master/practical_4/report/report.pdf)
-- [Practical 5](https://github.com/AdamMenne/chemistry_264/raw/master/practical_5/report/report.pdf)
+- [Practical 7](https://github.com/AdamMenne/chemistry_264/raw/master/practical_7/report/report.pdf)
