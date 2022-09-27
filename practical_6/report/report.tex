@@ -1,0 +1,203 @@
+\documentclass[a4paper, british]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+% \usepackage[margin=2.5cm,a4paper]{geometry}
+% \usepackage[skip=1em]{parskip}
+\usepackage{lmodern} 
+\usepackage{microtype}
+% \usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{ {./figures/} }
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{adjustbox} % rescale - useful for Dia exported TeX
+\usepackage{tikz}
+% \usepackage{pgfplots}
+\usepackage{booktabs} %tables no vertical lines
+% \usepackage{array}
+% \usepackage{authblk}
+% \usepackage{fancyhdr} %headers and footers
+% \usepackage{titlesec}
+% \usepackage{tcolorbox} % framed text boxes
+% \usepackage{mathtools, amssymb, amsthm}
+% \usepackage{gensymb}
+\usepackage{chemformula} % chemical formulae
+\usepackage{chemfig} % molecular figures
+\usepackage{siunitx}
+\usepackage{csquotes}
+\usepackage[titletoc, title]{appendix}
+% \usepackage{lettrine} % initials
+
+\usepackage[
+pdfauthor={Adam Menne},
+pdftitle={Chemistry 264 - Practical 6},
+pdfsubject={},
+pdfkeywords={}]{hyperref}
+
+\usepackage[noabbrev]{cleveref}
+
+\usepackage[
+backend=biber,
+style=phys,
+sorting=none,
+doi=true,
+isbn=false
+]{biblatex}
+\addbibresource{citations.bib}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+\linespread{1.3}
+
+\title{Chemistry 264\\ Practical 6}
+\date{Last edited on \today}
+\author{Adam Menne\\ Stellenbosch University}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent
+In this practical the use of IR spectroscopy to identify molecules and their substituent functional groups was investigated.
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+In this practical we aim to identify six different compounds by way of IR spectroscopy.
+
+IR spectroscopy enables the measurement of the absorbance/transmittance of a sample over a region of the IR spectrum. The region measured in this practical is the mid-IR(4000 - 400 \(cm^{-1}\)), which reveals the resonant frequencies of the molecules being analysed, from this the molecules may be characterised. Specifically peaks at particular frequencies indicate the presence of different bond types, from which the substituent functional groups of a molecule may be identified. Allowing for the molecule to be easily identified, if a reference spectrograph is available, or at least for the molecule to be characterised and differentiated from other samples. 
+
+
+\section{Experiment}
+
+A variety of sample preparation techniques are available, among those are the following.
+
+\subsection*{Mulling}
+
+The sample is ground into a fine powder with a mortar and pestle, and mixed with a mulling agent, in this case the mineral oil Nujol. It is then further ground into a paste, and then placed between two plates, that may be squeezed together to achieve the desired thickness of mull. \cite{harwoodExperimentalOrganicChemistry1990}
+
+\subsection*{Pellet method}
+
+The sample is ground with Potassium bromide. This mixture is then compressed with a press into a compacted pellet. The sample can then be analysed unhindered by the presence of the Potassium bromide as it is transparent in the IR region being sampled.\cite{harwoodExperimentalOrganicChemistry1990}
+
+\subsection*{Liquid Samples}
+
+Liquid samples may be directly placed in a cell composed of two plates, transparent to IR.
+
+
+\section{Results}
+
+Find below \cref{tab:A} through \cref{tab:F} showing the bonds identified in each sample and their associated wavenumber, from which the molecules were identified.\cite{InfraredSpectroscopyCorrelation2022}\cite{larkinInfraredRamanSpectroscopy2011}\cite{socratesInfraredRamanCharacteristic2010}
+
+\begin{table}[H]
+    \centering
+    \caption{A - Benzaldehyde}
+    \vspace*{2mm}
+    \label{tab:A}
+    \begin{tabular}{ll}
+    \toprule
+    Bond                         & Wavenumber \((cm^{-1})\)       \\ \midrule
+    C-H benzene                  & 3050         \\
+    C-H aldehyde                 & 2800 \& 2750 \\
+    C=O aldehyde \(\alpha, \beta\) unsaturated & 1700         \\
+    C-H monosub benzene          & 750 \& 700   \\
+    C-H trisub. alkene           & 850          \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{B - 3-Nitroanilene}
+    \vspace*{2mm}
+    \label{tab:B}
+    \begin{tabular}{ll}
+    \toprule
+    Bond                         & Wavenumber \((cm^{-1})\)       \\ \midrule
+    C=C                          & 1650         \\
+    N-O aromatic nitro           & 1550 \& 1350 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{C - Diethyl phthalate}
+    \vspace*{2mm}
+    \label{tab:C}
+    \begin{tabular}{ll}
+        Bond                    & Wavenumber \((cm^{-1})\)                       \\ \midrule
+        C-H benzene             & 3000                         \\
+        C-H methyl              & 2950 \& 2850                 \\
+        C=O ester     & 1750                         \\
+        C=C aromatic            & 1610 \& 1590 \& 1500 \& 1450 \\
+        C-O ester     & 1300                         \\
+        C-H meta-disub. benzene & 850 \& 750                   \\ 
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{D - 4-Aminobenzoic acid}
+    \vspace*{2mm}
+    \label{tab:D}
+    \begin{tabular}{ll}
+        \toprule
+        Bond                    & Wavenumber \((cm^{-1})\)                       \\ 
+        \midrule
+        N-H primary amine       & 3450 \& 3350                 \\
+        C=O carboxylic acid     & 1680                         \\
+        C=N                     & 1650                         \\
+        C=C aromatic            & 1600 \& 1550 \& 1500 \& 1450 \\
+        C-O carboxylic acid     & 1300                         \\
+        C-H para-disub. benzene & 850                          \\ 
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{E - Benzamide}
+    \vspace*{2mm}
+    \label{tab:E}
+    \begin{tabular}{ll}
+        \toprule
+        Bond                & Wavenumber \((cm^{-1})\) \\ 
+        \midrule
+        N-H primary amine   & 3350   \\
+        C-H benzene         & 3050   \\
+        C=O aromatic ketone & 1650   \\ 
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{F - THF}
+    \vspace*{2mm}
+    \label{tab:F}
+    \begin{tabular}{ll}
+        \toprule
+        Bond                & Wavenumber \((cm^{-1})\)               \\ \midrule
+        C-H                 & 2950 \& 2850 \& 1400 \\
+        C-O aliphatic ether & 1100                 \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Conclusion}
+
+IR spectroscopy has been shown to be an extremely accurate and consistent method of identification and characterisation of a wide range of organic molecules.
+
+\newpage
+
+\printbibliography
+
+
+\end{document}
